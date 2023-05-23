@@ -1,4 +1,5 @@
 using MoodAnaliyer;
+using NUnit.Framework.Internal;
 
 namespace MoodAnaliyerNUnitTest
 {
@@ -39,6 +40,35 @@ namespace MoodAnaliyerNUnitTest
             string actual = moody.AnalyzeMood();
             Assert.AreEqual(expected, actual);
         }
-        
+
+        [Test]
+        public void Null_Return_Using_Custom_Exception()
+        {
+
+            MoodAnalyzer moody = new MoodAnalyzer(null);
+            try
+            {
+                string result = moody.AnalyzeMood();
+
+            }
+            catch(MoodAnalyizerCustomException e)
+            { 
+                Assert.AreEqual("Null Input",e.Message);
+            }
+        }
+
+        public void Empty_Return_Using_Custom_Exception()
+        {
+            MoodAnalyzer moody = new MoodAnalyzer(string.Empty);
+            try
+            {
+                string result = moody.AnalyzeMood();
+
+            }
+            catch (MoodAnalyizerCustomException e)
+            {
+                Assert.AreEqual("Null Input", e.Message);
+            }
+        }
     }
 }

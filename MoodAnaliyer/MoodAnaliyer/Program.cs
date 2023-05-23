@@ -10,10 +10,10 @@ namespace MoodAnaliyer
     {
         public static void Main(string[] args)
         {
-            //MoodAnalyzer mood = new MoodAnalyzer();
-            string message = "I am in Sad Mood";
+           // string message = "";
+           //MoodAnalyzer mood = new MoodAnalyzer(message);
            // Console.WriteLine("I am in a {0} mood",mood.AnalyzeMood());
-
+            Console.ReadLine();
         }
     }
 }
